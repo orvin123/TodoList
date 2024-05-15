@@ -1,0 +1,52 @@
+#* Docker Compose version
+version: "3.9"
+
+#* All services to be used will be declared
+services:
+  #* Service name
+  backend: 
+    build: ./server
+    ports:
+      - "3000:3000"
+    networks:
+      - intranet
+
+  database: #* Image to use
+    image: mysql:8.0.33
+    init: true
+    restart: unless-stopped
+    #* Volume where information persists
+    volumes:
+      #*- "./server/src/database/todoListDB.sql"
+      - mysql-data:/var/lib/mysql
+    #* Port exhibition
+    ports:
+      - "3306:3306"
+    networks:
+      - intranet
+     #* Environment variables
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456789
+      MYSQL_DATABASE: root
+  
+  frontend:
+    build: .
+    ports:
+      - "4200:4200"
+    networks:
+      - intranet
+    volumes:
+      - .:/home/app
+    restart: unless-stopped
+
+  
+  
+
+#* Volumes to be used
+volumes:
+  mysql-data:
+
+#* Networks to be used
+networks:
+  intranet:
+    driver: bridge

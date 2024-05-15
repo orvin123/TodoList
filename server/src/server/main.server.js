@@ -13,9 +13,20 @@ class Server {
         // * Paths
         this.webPath = '/api/web';
 
+        // * Middleware
+        this.middleware();
+
         // * Rutas
         this.routes();
     } 
+
+       // * Method to initialize the middleware
+    middleware() {
+        // * CORS
+        this.app.use(cors());
+        // * Reading and parsing the body
+        this.app.use(express.json());
+    }
 
      // * Method to initialize routes
      routes() {

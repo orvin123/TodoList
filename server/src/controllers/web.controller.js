@@ -6,6 +6,6 @@ exports.home = async (req = request, res = response) => {
         statusCode: res.statusCode = 200,
         error: false,
         message: "Hola Mundo",
-        body: []
+        body: [1,2,3]
     });
 }
