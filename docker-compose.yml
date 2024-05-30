@@ -10,6 +10,9 @@ services:
       - "3000:3000"
     networks:
       - intranet
+    volumes:
+      - ./server:/home/app
+    restart: unless-stopped
 
   database: #* Image to use
     image: mysql:8.0.33

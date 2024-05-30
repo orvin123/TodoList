@@ -1,1 +1,22 @@
-<p>login works!</p>
+<div class="card text-center">
+    <h5 class="card-header">Login</h5>
+    <div class="card-body">
+      <form id="login"  [formGroup]="login" (ngSubmit)="onLogin()">
+        <div class="form-floating">
+            <input type="email" class="form-control" id="email" formControlName="user" >
+            <label for="email">Email</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="pass" formControlName="pass">
+            <label for="pass">Password</label>
+        </div>
+        <div class="col-auto">
+            <span id="passwordHelpInline" class="form-text">
+              Must be 8-20 characters long.
+            </span>
+          </div>
+          <button type="submit" class="btn btn-primary mb-3">Login</button>
+      </form>
+     
+    </div>
+  </div>

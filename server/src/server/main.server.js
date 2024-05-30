@@ -12,6 +12,7 @@ class Server {
 
         // * Paths
         this.webPath = '/api/web';
+        this.authPath ='/api/auth'
 
         // * Middleware
         this.middleware();
@@ -31,6 +32,7 @@ class Server {
      // * Method to initialize routes
      routes() {
         this.app.use(this.webPath, require('../routes/web.routes'));
+        this.app.use(this.authPath, require('../routes/auth.routes') )
     }
 
     // * Method to initialize the server
