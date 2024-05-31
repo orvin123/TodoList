@@ -11,7 +11,7 @@ services:
     networks:
       - intranet
     volumes:
-      - ./server:/home/app
+      - .:/home/app
     restart: unless-stopped
 
   database: #* Image to use
